@@ -1,0 +1,52 @@
+{
+  "zones": [
+    {
+      "id": "zone-internet",
+      "name": "Internet",
+      "description": "Untrusted external network (public internet)",
+      "trust_level": 0,
+      "network_cidr": "0.0.0.0/0",
+      "zone_type": "External"
+    },
+    {
+      "id": "zone-dmz",
+      "name": "DMZ",
+      "description": "Demilitarized zone for public-facing services",
+      "trust_level": 1,
+      "network_cidr": "172.16.10.0/24",
+      "zone_type": "DMZ"
+    },
+    {
+      "id": "zone-application",
+      "name": "Application",
+      "description": "Internal application servers tier",
+      "trust_level": 2,
+      "network_cidr": "10.10.20.0/24",
+      "zone_type": "Internal"
+    },
+    {
+      "id": "zone-database",
+      "name": "Database",
+      "description": "Restricted database servers — highly sensitive data",
+      "trust_level": 3,
+      "network_cidr": "10.10.30.0/24",
+      "zone_type": "Restricted"
+    },
+    {
+      "id": "zone-admin",
+      "name": "Admin",
+      "description": "Management and administrative systems",
+      "trust_level": 4,
+      "network_cidr": "10.10.40.0/24",
+      "zone_type": "Management"
+    },
+    {
+      "id": "zone-guest",
+      "name": "Guest",
+      "description": "Untrusted guest wireless network",
+      "trust_level": 0,
+      "network_cidr": "10.10.50.0/24",
+      "zone_type": "Guest"
+    }
+  ]
+}

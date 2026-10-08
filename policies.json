@@ -1,0 +1,74 @@
+{
+  "policies": [
+    {
+      "policy_id": "POL-001",
+      "source_zone": "Internet",
+      "destination_zone": "Database",
+      "protocol": "ANY",
+      "port": "ANY",
+      "required_action": "DENY",
+      "severity": "CRITICAL",
+      "description": "Internet must never reach the Database zone (direct or indirect)"
+    },
+    {
+      "policy_id": "POL-002",
+      "source_zone": "Guest",
+      "destination_zone": "Database",
+      "protocol": "ANY",
+      "port": "ANY",
+      "required_action": "DENY",
+      "severity": "CRITICAL",
+      "description": "Guest networks must never access the Database zone"
+    },
+    {
+      "policy_id": "POL-003",
+      "source_zone": "Guest",
+      "destination_zone": "Application",
+      "protocol": "ANY",
+      "port": "ANY",
+      "required_action": "DENY",
+      "severity": "HIGH",
+      "description": "Guest networks must not access internal Application servers"
+    },
+    {
+      "policy_id": "POL-004",
+      "source_zone": "Application",
+      "destination_zone": "Database",
+      "protocol": "TCP",
+      "port": "5432",
+      "required_action": "ALLOW",
+      "severity": "INFO",
+      "description": "Application servers are permitted to access the Database on port 5432"
+    },
+    {
+      "policy_id": "POL-005",
+      "source_zone": "Admin",
+      "destination_zone": "Database",
+      "protocol": "TCP",
+      "port": "5432",
+      "required_action": "ALLOW",
+      "severity": "INFO",
+      "description": "Admin zone is permitted direct database access for maintenance"
+    },
+    {
+      "policy_id": "POL-006",
+      "source_zone": "Internet",
+      "destination_zone": "Admin",
+      "protocol": "ANY",
+      "port": "ANY",
+      "required_action": "DENY",
+      "severity": "CRITICAL",
+      "description": "Internet must never reach the Admin management zone"
+    },
+    {
+      "policy_id": "POL-007",
+      "source_zone": "Guest",
+      "destination_zone": "Admin",
+      "protocol": "ANY",
+      "port": "ANY",
+      "required_action": "DENY",
+      "severity": "CRITICAL",
+      "description": "Guest networks must never access the Admin management zone"
+    }
+  ]
+}
